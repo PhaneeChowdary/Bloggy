@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h2 style="text-align: center; margin-top: 1.5rem;">About page</h2>
+<div class="content-section phanee-style background mt-4">
+    <div class="row m-3 text-center">
+        <img src="{% static 'images/phanee.png' %}" alt="" class="rounded-circle mx-auto d-block" />
+        <h5 class="mt-4">Creator: <span style="color:rgb(186, 5, 105);">Phaneendrababu.Gunturu</span></h5>
+    </div>
+    <p>This is a basic blog application created using Django for backend and Bootstrap for frontend.</p>
+    <p>Basic operations that any user can perform in this application are : </p>
+    <ol>
+        <li class="p-1">Register account using Gmail.</li>
+        <li class="p-1">Create posts and publish.</li>
+        <li class="p-1">Update/Delete posts of their own.</li>
+        <li class="p-1">View others posts.</li>
+        <li class="p-1">Can update their details.</li>
+    </ol>
+</div>
+{% endblock %}

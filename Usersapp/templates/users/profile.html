@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h2 style="text-align:center; margin:1rem;">Your Profile</h2>
+
+<div class="content-section phanee-style">
+    <div class="row">
+        <div class="col-md-6 mt-2 mb-2">
+            <img src="{{ user.profile.image.url }}" alt="Profile Pic" class="img-fluid rounded-circle"
+                style="height:90px;width:100px;margin: auto;">
+            <br><strong> Username: <span style="color: rgb(0, 128, 92);"> {{ user.username }} </span></strong><br>
+            <strong>Email : <span style="color: rgb(0, 128, 92);"> {{ user.email }}</span></strong>
+        </div>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data" class="mt-3">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Profile Info</legend>
+            {{ u_form | crispy }}
+            {{ p_form | crispy }}
+        </fieldset>
+        <div class="from-group">
+            <button class="btn btn-outline-info" type="submit">Update</button>
+        </div>
+    </form>
+
+</div>
+{% endblock %}

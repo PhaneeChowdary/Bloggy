@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<article class="d-flex content-section phanee-style">
+    <div class="flex-shrink-0">
+        <img src="{{ object.author.profile.image.url }}" alt="Profile Pic" class="rounded-circle account-image"
+            style="height:45px;width:50px;" />
+    </div>
+    <div class="flex-grow-1 ms-3">
+        <a href="{% url 'userposts' post.author.username %}" class="mr-2">{{ object.author }}</a>&nbsp;
+        <small class="text-muted">Posted on {{ object.date_posted.date }}</small>
+        <hr style="width:100%; margin:0.5rem auto;">
+        <h3 id="post-title">{{ object.title }}</h3>
+        <p class="article-content">{{ object.content }}</p>
+
+        {% if object.author == user %}
+        <a class="btn btn-primary btn-sm mt-1 mb-1 p-2" href="{% url 'update' object.id %}">Update</a>
+        <a class="btn btn-danger btn-sm mt-1 mb-1 p-2" href="{% url 'delete' object.id %}">Delete</a>
+        {% endif %}
+    </div>
+</article>
+{% endblock %}
